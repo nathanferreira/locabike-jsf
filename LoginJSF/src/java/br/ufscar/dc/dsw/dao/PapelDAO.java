@@ -49,9 +49,9 @@ public class PapelDAO extends GenericDAO<Papel>{
     }
 
     @Override
-    public Papel get(Long id) {
+    public Papel get(String email) {
         EntityManager em = this.getEntityManager();
-        Papel papel = em.find(Papel.class, id);
+        Papel papel = em.find(Papel.class, email);
         em.close();
         return papel;
     }

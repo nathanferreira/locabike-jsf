@@ -1,13 +1,62 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Área Papel: ROLE_ADMIN</title>
-    </h:head>
-    <h:body>
-        <h1>Área Papel: ROLE_ADMIN</h1>
-        <br/>
-        <a href="#{request.contextPath}/logout">Logout</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://xmlns.jcp.org/jsf/html"  
+      xmlns:f="http://xmlns.jcp.org/jsf/core">  
+    <h:head>  
+        <title>#{msg['root.page.title']}</title>
+        <link rel="stylesheet" 
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+              crossorigin="anonymous"/>
+        <h:outputStylesheet name="/css/estilo.css"/>
+    </h:head>  
+    <h:body>  
+        <h:form>
+            <br/>
+            <center>  
+                <h2><h:outputText value="#{msg['user.list.title']}"/></h2>  
+            </center>
+            <br/>
+            <h:dataTable value="#{usuarioBean.usuarios}" var="usuario"   
+                         class="table table-striped table-hover table-bordered">  
+
+                <h:column>  
+                    <f:facet name="header">#{msg['email.label']}</f:facet>  
+                    <h:outputText value="#{usuario.email}"/>  
+                </h:column>
+                <h:column>  
+                    <f:facet name="header">#{msg['password.label']}</f:facet>  
+                    <h:outputText value="#{usuario.password}"/>  
+                </h:column>  
+                <h:column>  
+                    <f:facet name="header">#{msg['user.type.label']}</f:facet>  
+                    <h:outputText value="#{usuario.password}"/>  
+                </h:column>  
+               
+                <h:column>  
+                    <f:facet name="header"></f:facet>  
+                    <h:commandButton action = "#{usuarioBean.edita(usuario.email)}" value="#{msg['edit.command.label']}" class="btn btn-primary">  
+                    </h:commandButton>  
+                </h:column>  
+                <h:column>  
+                    <f:facet name="header"></f:facet>  
+                    <h:commandButton action = "#{usuarioBean.delete(usuario)}" value="#{msg['delete.command.label']}" 
+                                     onclick="return confirm('#{msg['confirm.delete']}');"
+                                     class="btn btn-danger" >  
+                    </h:commandButton>  
+                </h:column>
+            </h:dataTable>  
+            <br/>
+            <center>
+                <h:commandButton action = "#{usuarioBean.cadastra()}"   
+                                 value="#{msg['create.command.label']}" class="btn btn-primary"></h:commandButton>
+            </center>
+            <br/>
+            <center>
+                <h:commandButton action = "#{usuarioBean.volta()}"   
+                                 value="#{msg['root.back.label']}" class="btn btn-success"></h:commandButton>
+            </center>
+        </h:form>  
     </h:body>
 </html>

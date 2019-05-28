@@ -22,9 +22,9 @@ public class ClienteBean {
         return "form.xhtml";
     }
 
-    public String edita(Long id) {
+    public String edita(String email) {
         ClienteDAO dao = new ClienteDAO();
-        cliente = dao.get(id);
+        cliente = dao.get(email);
         return "form.xhtml";
     }
 

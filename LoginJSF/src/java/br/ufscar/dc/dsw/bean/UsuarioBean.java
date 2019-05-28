@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class UsuarioBean {
-
+    
     private Usuario usuario;
 
     public String lista() {
@@ -22,14 +22,14 @@ public class UsuarioBean {
         return "form.xhtml";
     }
 
-    public String edita(Long id) {
+    public String edita(String email) {
         UsuarioDAO dao = new UsuarioDAO();
-        usuario = dao.get(id);
+        usuario = dao.get(email);
         return "form.xhtml";
     }
 
     public String salva() {
-        UsuarioDAO dao = new UsuarioDAO();
+        UsuarioDAO dao = new UsuarioDAO();        
         if (usuario.getEmail() == null) {
             dao.save(usuario);
         } else {

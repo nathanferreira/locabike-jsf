@@ -22,9 +22,9 @@ public class LocacaoBean {
         return "form.xhtml";
     }
 
-    public String edita(Long id) {
+    public String edita(String email) {
         LocacaoDAO dao = new LocacaoDAO();
-        locacao = dao.get(id);
+        locacao = dao.get(email);
         return "form.xhtml";
     }
 

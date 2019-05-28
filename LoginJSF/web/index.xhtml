@@ -7,7 +7,8 @@
         <title>Home Page</title>
     </h:head>
     <h:body>
-        <h2>Bemvindo
+        <h:outputText value="#{msg['root.page.title']}"/>
+        <h2>
             #{request.getUserPrincipal().getName().toString()}
         </h2>
 
@@ -15,25 +16,27 @@
             <!--<sec:authorize ifAllGranted="ROLE_ADMIN">-->
 
 
-                <h:commandLink action="admin/index.xhtml?faces-redirect=true">Área de Administrador</h:commandLink>
-            
+            <h:commandLink action="admin/index.xhtml?faces-redirect=true">Área de Administrador</h:commandLink><br></br>
+                
             <!--</sec:authorize>-->
 
             <!--<sec:authorize ifAllGranted="ROLE_USER">-->
          
 
-                <h:commandLink action="cliente/index.xhtml?faces-redirect=true">Área de Cliente</h:commandLink>
+                <h:commandLink action="cliente/index.xhtml?faces-redirect=true">Área de Cliente</h:commandLink><br></br>
                 
             <!--</sec:authorize>-->
             
             <!--<sec:authorize ifAllGranted="ROLE_USER">-->
            
 
-                <h:commandLink action="locadora/index.xhtml?faces-redirect=true">Área de Locadora</h:commandLink>
+                <h:commandLink action="locadora/index.xhtml?faces-redirect=true">Área de Locadora</h:commandLink><br></br>
                 
             <!--</sec:authorize>-->
             
-            <h:commandLink action="open/index">Área de Open</h:commandLink>
+            <h:commandLink action="open/index">Área de Open</h:commandLink><br></br>
+            
+            <a href="#{request.contextPath}/logout">Logout</a>
             
         </h:form>
     </h:body>

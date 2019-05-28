@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario implements Serializable {
- 
+
     @Id
     private String email;
     private String password;
