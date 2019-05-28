@@ -6,10 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cliente implements Serializable {
+public class Cliente extends Usuario implements Serializable {
 
-    @OneToOne
-    private Usuario usuario;
+    //@OneToOne
+    //private Usuario usuario;
 
     @Id
     private String email;
@@ -21,13 +21,13 @@ public class Cliente implements Serializable {
     private String phone;
     private String birthDate;
 
-    public Usuario getUsuario() {
+    /*public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public String getEmail() {
         return email;

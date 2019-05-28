@@ -9,14 +9,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UsuarioDAO extends GenericDAO<Usuario> {
 
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     
     @Override
     public void save(Usuario usuario) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        usuario.setPassword(encoder.encode(usuario.getPassword()));
         em.persist(usuario);
         tx.commit();
         em.close();

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Locadora implements Serializable {
+public class Locadora extends Usuario implements Serializable {
 
     @Id
     private String email;
@@ -17,16 +17,16 @@ public class Locadora implements Serializable {
     private String name;
     private String city;
     
-    @OneToOne
-    private Usuario usuario;
+    //@OneToOne
+   // private Usuario usuario;
     
-    public Usuario getUsuario() {
+    /*public Usuario getUsuario() {
         return usuario;
     }
     
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public String getEmail() {
         return email;

@@ -7,10 +7,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 
     @Id
@@ -18,11 +21,11 @@ public class Usuario implements Serializable {
     private String password;
     private boolean ativo;
     
-    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Cliente> clientes;
+    //@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+    //private List<Cliente> clientes;
     
-    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<Locadora> locadoras;
+    //@OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+    //private List<Locadora> locadoras;
     
     @ManyToMany
     private List<Papel> papel;

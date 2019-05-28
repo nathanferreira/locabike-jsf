@@ -6,10 +6,14 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
 @SessionScoped
 public class UsuarioBean {
+    
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     
     private Usuario usuario;
 
@@ -29,9 +33,13 @@ public class UsuarioBean {
     }
 
     public String salva() {
-        UsuarioDAO dao = new UsuarioDAO();        
+        UsuarioDAO dao = new UsuarioDAO();
+        usuario.setPassword(encoder.encode(usuario.getPassword()));
+        
         if (usuario.getEmail() == null) {
+            
             dao.save(usuario);
+            
         } else {
             dao.update(usuario);
         }

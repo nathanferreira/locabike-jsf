@@ -43,7 +43,9 @@ public class CriaUsuarios {
         c1.setPhone("23872378");
         clienteDAO.save(c1);
         
-        Papel p3 = new Papel();
+        usuarioDAO.save(c1);
+        
+        /*Papel p3 = new Papel();
         p3.setNome("ROLE_CLIENTE");
         papelDAO.save(p3);
         
@@ -54,7 +56,7 @@ public class CriaUsuarios {
         usuarioDAO.save(u3);
         
         u3.getPapel().add(p3);
-        usuarioDAO.update(u3);
+        usuarioDAO.update(u3);*/
         
         // Criando Usuario locadora com papel ROLE_LOCADORA
         
@@ -66,7 +68,7 @@ public class CriaUsuarios {
         l1.setCity("São Carlos");
         locadoraDAO.save(l1);
         
-        Papel p2 = new Papel();
+        /*Papel p2 = new Papel();
         p2.setNome("ROLE_LOCADORA");
         papelDAO.save(p3);
         
@@ -77,6 +79,6 @@ public class CriaUsuarios {
         usuarioDAO.save(u2);
         
         u2.getPapel().add(p2);
-        usuarioDAO.update(u2);
+        usuarioDAO.update(u2);*/
     }
 }
