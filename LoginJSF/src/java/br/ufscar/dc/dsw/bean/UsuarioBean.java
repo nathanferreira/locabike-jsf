@@ -6,15 +6,17 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
 @SessionScoped
 public class UsuarioBean {
-    
+
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    
     private Usuario usuario;
 
     public String lista() {
@@ -34,15 +36,16 @@ public class UsuarioBean {
 
     public String salva() {
         UsuarioDAO dao = new UsuarioDAO();
-        usuario.setPassword(encoder.encode(usuario.getPassword()));
-        
-        if (usuario.getEmail() == null) {
-            
+        usuario.setDtype("Usuario");
+        usuario.setAtivo(true);
+
+        if (usuario.getId() == null) {
+            usuario.setPassword(encoder.encode(usuario.getPassword()));
             dao.save(usuario);
-            
         } else {
             dao.update(usuario);
         }
+        
         return "index.xhtml";
     }
 

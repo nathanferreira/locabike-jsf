@@ -5,11 +5,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UsuarioDAO extends GenericDAO<Usuario> {
 
-    
     @Override
     public void save(Usuario usuario) {
         EntityManager em = this.getEntityManager();

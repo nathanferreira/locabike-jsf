@@ -6,10 +6,13 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
 @SessionScoped
 public class LocadoraBean {
+
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     private Locadora locadora;
 
@@ -21,7 +24,7 @@ public class LocadoraBean {
         locadora = new Locadora();
         return "form.xhtml";
     }
-
+    
     public String edita(String email) {
         LocadoraDAO dao = new LocadoraDAO();
         locadora = dao.get(email);
@@ -30,11 +33,15 @@ public class LocadoraBean {
 
     public String salva() {
         LocadoraDAO dao = new LocadoraDAO();
-        if (locadora.getEmail() == null) {
+        locadora.setAtivo(true);
+        
+        if (locadora.getId() == null) {
+            locadora.setPassword(encoder.encode(locadora.getPassword()));
             dao.save(locadora);
         } else {
             dao.update(locadora);
         }
+        
         return "index.xhtml";
     }
 
