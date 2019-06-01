@@ -38,7 +38,7 @@ public class ClienteBean {
         ClienteDAO dao = new ClienteDAO();
         cliente.setAtivo(true);
 
-        if (cliente.getId() == null) {
+        if (cliente.getDtype() == null) {
             cliente.setPassword(encoder.encode(cliente.getPassword()));
             dao.save(cliente);
         } else {

@@ -29,19 +29,15 @@ public class LocacaoBean {
     }
 
     public String salva() {
-        LocacaoDAO dao = new LocacaoDAO();
-        if (locacao.getID() == null) {
-            dao.save(locacao);
-        } else {
-            dao.update(locacao);
-        }
+        LocacaoDAO dao = new LocacaoDAO();     
+        dao.update(locacao);
         return "index.xhtml";
     }
 
     public String delete(Locacao locacao) {
         LocacaoDAO dao = new LocacaoDAO();
         dao.delete(locacao);
-        return "index.xhtml";
+        return "locacao/index.xhtml";
     }
 
     public String volta() {

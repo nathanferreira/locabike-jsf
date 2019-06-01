@@ -40,6 +40,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/faces/admin/**").hasRole("ADMIN")
                 .antMatchers("/faces/cliente/**").hasRole("CLIENTE")
                 .antMatchers("/faces/locadora/**").hasRole("LOCADORA")
+                .antMatchers("/faces/locacao/**").hasRole("CLIENTE")
                 .antMatchers("/open/**").permitAll()
                 .anyRequest().permitAll()
                 .and()

@@ -35,7 +35,7 @@ public class LocadoraBean {
         LocadoraDAO dao = new LocadoraDAO();
         locadora.setAtivo(true);
         
-        if (locadora.getId() == null) {
+        if (locadora.getDtype() == null) {
             locadora.setPassword(encoder.encode(locadora.getPassword()));
             dao.save(locadora);
         } else {

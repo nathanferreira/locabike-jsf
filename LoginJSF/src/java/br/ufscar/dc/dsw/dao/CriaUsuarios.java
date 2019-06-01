@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw.dao;
 import br.ufscar.dc.dsw.pojo.Papel;
 import br.ufscar.dc.dsw.pojo.Usuario;
 import br.ufscar.dc.dsw.pojo.Cliente;
+import br.ufscar.dc.dsw.pojo.Locacao;
 import br.ufscar.dc.dsw.pojo.Locadora;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -16,6 +17,7 @@ public class CriaUsuarios {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
         LocadoraDAO locadoraDAO = new LocadoraDAO();
+        LocacaoDAO locacaoDAO = new LocacaoDAO();
 
         // Criando Usuario admin com papel ROLE_ADMIN
         Usuario u1 = new Usuario();
@@ -66,5 +68,12 @@ public class CriaUsuarios {
 
         l1.getPapel().add(p2);
         usuarioDAO.update(l1);
+        
+        // Criando locacao
+        Locacao loc1 = new Locacao();
+        loc1.setRentDate("31/05/2019");
+        loc1.setCliente(c1);
+        loc1.setLocadora(l1);
+        locacaoDAO.save(loc1);
     }
 }

@@ -39,7 +39,7 @@ public class UsuarioBean {
         usuario.setDtype("Usuario");
         usuario.setAtivo(true);
 
-        if (usuario.getId() == null) {
+        if (usuario.getEmail() == null) {
             usuario.setPassword(encoder.encode(usuario.getPassword()));
             dao.save(usuario);
         } else {

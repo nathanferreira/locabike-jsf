@@ -10,25 +10,13 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Locacao implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private String ID;
-    private String clienteEmail;
-    private String locadoraEmail;
+    
     private String rentDate;
     
     @ManyToOne
-    private Cliente cliente;
-    
-    @ManyToOne
     private Locadora locadora;
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 
     public Locadora getLocadora() {
         return locadora;
@@ -36,6 +24,17 @@ public class Locacao implements Serializable {
 
     public void setLocadora(Locadora locadora) {
         this.locadora = locadora;
+    }
+    
+    @ManyToOne
+    private Cliente cliente;
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getID() {
@@ -46,24 +45,8 @@ public class Locacao implements Serializable {
         this.ID = ID;
     }
 
-    public void setlocadoraEmail(String locadoraEmail) {
-        this.locadoraEmail = locadoraEmail;
-    }
-
-    public void setclienteEmail(String clienteEmail) {
-        this.clienteEmail = clienteEmail;
-    }
-
     public void setRentDate(String rentDate) {
         this.rentDate = rentDate;
-    }
-
-    public String getlocadoraEmail() {
-        return locadoraEmail;
-    }
-
-    public String getclienteEmail() {
-        return clienteEmail;
     }
 
     public String getRentDate() {
