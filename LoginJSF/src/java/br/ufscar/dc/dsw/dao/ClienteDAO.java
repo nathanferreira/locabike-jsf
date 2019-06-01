@@ -54,4 +54,12 @@ public class ClienteDAO extends GenericDAO<Cliente> {
         em.close();
         return cliente;
     }
+    
+    public Cliente getClienteByEmail(String email) {
+        EntityManager em = this.getEntityManager();
+        String s = "select c from Cliente c where c.email = :email";
+        Query q = em.createQuery(s, Cliente.class);
+        q.setParameter("email", email);
+        return (Cliente) q.getSingleResult();
+    }
 }

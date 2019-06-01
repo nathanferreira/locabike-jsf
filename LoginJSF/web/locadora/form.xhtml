@@ -32,7 +32,7 @@
                 </div>  
             </div>
             
-            <c:if test="${locadoraBean.locadora.id == null}">
+            <c:if test="${locadoraBean.locadora.dtype == null}">
             <div class="form-group">  
                 <h:outputLabel for="password" class="control-label col-sm-4">#{msg['password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
@@ -81,7 +81,7 @@
                 <div class="col-sm-4">  
                     <div class="col-sm-2">
 
-                        <h:commandButton value="#{msg['save.command.label']}" action="#{locadoraBean.store()}" class="btn btn-primary"   
+                        <h:commandButton value="#{msg['save.command.label']}" action="#{locadoraBean.salva()}" class="btn btn-primary"   
                                          style="width: 80px;"></h:commandButton>  
                     </div>  
                     <br/>  

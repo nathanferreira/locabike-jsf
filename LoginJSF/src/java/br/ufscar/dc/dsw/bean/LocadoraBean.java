@@ -2,7 +2,9 @@ package br.ufscar.dc.dsw.bean;
 
 import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.pojo.Locadora;
+import java.sql.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -52,6 +54,10 @@ public class LocadoraBean {
     }
 
     public String volta() {
+        return "/menu.xhtml?faces-redirect=true";
+    }
+    
+    public String voltaIndex(){
         return "/index.xhtml?faces-redirect=true";
     }
 

@@ -1,7 +1,10 @@
 package br.ufscar.dc.dsw.bean;
 
+import br.ufscar.dc.dsw.dao.ClienteDAO;
 import br.ufscar.dc.dsw.dao.LocacaoDAO;
+import br.ufscar.dc.dsw.dao.LocadoraDAO;
 import br.ufscar.dc.dsw.pojo.Locacao;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -22,15 +25,27 @@ public class LocacaoBean {
         return "form.xhtml";
     }
 
-    public String edita(String email) {
+    public String edita(String ID) {
         LocacaoDAO dao = new LocacaoDAO();
-        locacao = dao.get(email);
+        locacao = dao.get(ID);
         return "form.xhtml";
     }
 
-    public String salva() {
-        LocacaoDAO dao = new LocacaoDAO();     
-        dao.update(locacao);
+    public String salva(String email) {
+        LocacaoDAO dao = new LocacaoDAO();
+        ClienteDAO daoC = new ClienteDAO();
+        
+        LocadoraDAO daoL = new LocadoraDAO();
+        
+        locacao.setCliente(daoC.getClienteByEmail(email));
+        // locacao.setLocadora(daoL.get("locadora@locadora"));
+        
+        if (locacao.getID() == null) {
+            dao.save(locacao);
+        } else {
+            dao.update(locacao);
+        }
+        
         return "index.xhtml";
     }
 
@@ -41,7 +56,7 @@ public class LocacaoBean {
     }
 
     public String volta() {
-        return "/index.xhtml?faces-redirect=true";
+        return "/menu.xhtml?faces-redirect=true";
     }
 
     public List<Locacao> getLocacaos() throws SQLException {

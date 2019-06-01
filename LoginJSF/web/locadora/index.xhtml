@@ -30,15 +30,15 @@
                     <h:outputText value="#{locadora.password}"/>  
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">#{msg['locadora.cnpj.label']}</f:facet>  
+                    <f:facet name="header">#{msg['CNPJ.label']}</f:facet>  
                     <h:outputText value="#{locadora.CNPJ}"/>
                 </h:column>
                 <h:column>  
-                    <f:facet name="header">#{msg['locadora.name.label']}</f:facet>  
+                    <f:facet name="header">#{msg['name.label']}</f:facet>  
                     <h:outputText value="#{locadora.name}"/>
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">#{msg['locadora.city.label']}</f:facet>  
+                    <f:facet name="header">#{msg['city.label']}</f:facet>  
                     <h:outputText value="#{locadora.city}"/>
                 </h:column>  
 
@@ -54,7 +54,7 @@
                                      class="btn btn-danger" >  
                     </h:commandButton>  
                 </h:column>
-            </h:dataTable>  
+            </h:dataTable> 
             <br/>
             <center>
                 <h:commandButton action = "#{locadoraBean.cadastra()}"   

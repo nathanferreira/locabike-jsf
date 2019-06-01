@@ -6,7 +6,7 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
     <h:head>  
-        <title>#{msg['cliente.form.page.title']}</title>
+        <title>#{msg['root.page.title']}</title>
         <link rel="stylesheet" 
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -17,7 +17,7 @@
             <div class="form-group">  
                 <div class="col-sm-4"></div>  
                 <div  class="col-sm-4">  
-                    <h2 style="text-align: center">#{msg['user.form.label']}</h2>  
+                    <h2 style="text-align: center">#{msg['cliente.form.label']}</h2>  
                 </div>  
             </div>  
             <hr/>  
@@ -32,7 +32,7 @@
                 </div>  
             </div>
             
-            <c:if test="${clienteBean.cliente.id == null}">
+            <c:if test="${clienteBean.cliente.dtype == null}">
             <div class="form-group">  
                 <h:outputLabel for="password" class="control-label col-sm-4">#{msg['password.label']}</h:outputLabel>  
                 <div class="col-sm-4">  

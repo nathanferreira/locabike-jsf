@@ -13,9 +13,19 @@ public class Locacao implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private String ID;
     
+    private String locadora_email;
+
+    public String getLocadora_email() {
+        return locadora_email;
+    }
+
+    public void setLocadora_email(String locadora_email) {
+        this.locadora_email = locadora_email;
+    }
+    
     private String rentDate;
     
-    @ManyToOne
+    /*@ManyToOne
     private Locadora locadora;
 
     public Locadora getLocadora() {
@@ -24,7 +34,7 @@ public class Locacao implements Serializable {
 
     public void setLocadora(Locadora locadora) {
         this.locadora = locadora;
-    }
+    }*/
     
     @ManyToOne
     private Cliente cliente;

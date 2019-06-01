@@ -6,9 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
@@ -39,7 +36,7 @@ public class UsuarioBean {
         usuario.setDtype("Usuario");
         usuario.setAtivo(true);
 
-        if (usuario.getEmail() == null) {
+        if (usuario.getDtype() == null) {
             usuario.setPassword(encoder.encode(usuario.getPassword()));
             dao.save(usuario);
         } else {
@@ -56,7 +53,7 @@ public class UsuarioBean {
     }
 
     public String volta() {
-        return "/index.xhtml?faces-redirect=true";
+        return "/menu.xhtml?faces-redirect=true";
     }
 
     public List<Usuario> getUsuarios() throws SQLException {

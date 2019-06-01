@@ -73,7 +73,7 @@ public class CriaUsuarios {
         Locacao loc1 = new Locacao();
         loc1.setRentDate("31/05/2019");
         loc1.setCliente(c1);
-        loc1.setLocadora(l1);
+        loc1.setLocadora_email(l1.getEmail());
         locacaoDAO.save(loc1);
     }
 }

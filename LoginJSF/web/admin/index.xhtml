@@ -15,7 +15,11 @@
         <h:form>
             <br/>
             <center>  
-                <h2><h:outputText value="#{msg['user.list.title']}"/></h2>  
+                <h2>
+                    <h:outputText value="#{msg['user.list.title']}"/>
+                    #{request.getUserPrincipal().getName().toString()}
+                    #{request.isUserInRole("ROLE_ADMIN")}
+                </h2>
             </center>
             <br/>
             <h:dataTable value="#{usuarioBean.usuarios}" var="usuario"   
@@ -33,7 +37,7 @@
                     <f:facet name="header">#{msg['user.type.label']}</f:facet>  
                     <h:outputText value="#{usuario.dtype}"/>
                 </h:column>  
-               
+
                 <h:column>  
                     <f:facet name="header"></f:facet>  
                     <h:commandButton action = "#{usuarioBean.edita(usuario.email)}" value="#{msg['edit.command.label']}" class="btn btn-primary">  

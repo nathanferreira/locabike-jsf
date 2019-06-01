@@ -47,9 +47,9 @@ public class LocacaoDAO extends GenericDAO<Locacao>{
     }
 
     @Override
-    public Locacao get(String email) {
+    public Locacao get(String ID) {
         EntityManager em = this.getEntityManager();
-        Locacao locacao = em.find(Locacao.class, email);
+        Locacao locacao = em.find(Locacao.class, ID);
         em.close();
         return locacao;
     }

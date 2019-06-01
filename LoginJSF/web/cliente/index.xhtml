@@ -30,22 +30,22 @@
                     <h:outputText value="#{cliente.password}"/>  
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">#{msg['cliente.cpf.label']}</f:facet>  
+                    <f:facet name="header">#{msg['CPF.label']}</f:facet>  
                     <h:outputText value="#{cliente.CPF}"/>
                 </h:column>
                 <h:column>  
-                    <f:facet name="header">#{msg['cliente.name.label']}</f:facet>  
+                    <f:facet name="header">#{msg['name.label']}</f:facet>  
                     <h:outputText value="#{cliente.name}"/>
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">#{msg['cliente.gender.label']}</f:facet>  
+                    <f:facet name="header">#{msg['gender.label']}</f:facet>  
                     <h:outputText value="#{cliente.gender}"/>
                 </h:column>  
                 <h:column>  
-                    <f:facet name="header">#{msg['cliente.phone.label']}</f:facet>  
+                    <f:facet name="header">#{msg['phone.label']}</f:facet>  
                     <h:outputText value="#{cliente.phone}"/>
                 </h:column>              <h:column>  
-                    <f:facet name="header">#{msg['cliente.birthDate.label']}</f:facet>  
+                    <f:facet name="header">#{msg['birthDate.label']}</f:facet>  
                     <h:outputText value="#{cliente.birthDate}"/>
                 </h:column>  
 
@@ -71,11 +71,6 @@
             <center>
                 <h:commandButton action = "#{clienteBean.volta()}"   
                                  value="#{msg['root.back.label']}" class="btn btn-success"></h:commandButton>
-            </center>
-            
-            <center>
-                <h:commandButton action="#{locacaoBean.cadastra()}"   
-                                 value="#{msg['locacao.cadastra.label']}" class="btn btn-success"></h:commandButton>
             </center>
             
         </h:form>  

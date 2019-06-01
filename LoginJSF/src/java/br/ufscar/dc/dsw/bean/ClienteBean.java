@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
@@ -34,7 +32,6 @@ public class ClienteBean {
     }
 
     public String salva() {
-
         ClienteDAO dao = new ClienteDAO();
         cliente.setAtivo(true);
 
@@ -55,7 +52,7 @@ public class ClienteBean {
     }
 
     public String volta() {
-        return "/index.xhtml?faces-redirect=true";
+        return "/menu.xhtml?faces-redirect=true";
     }
 
     public List<Cliente> getClientes() throws SQLException {

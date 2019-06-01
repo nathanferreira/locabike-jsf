@@ -22,44 +22,18 @@
             </div>  
             <hr/>
             
-            <!--
             <div class="form-group">  
-                <h:outputLabel for="locadoras" class="control-label col-sm-4">#{msg['locacao.locadoras.label']}</h:outputLabel>  
+                <h:outputLabel for="locadoras" class="control-label col-sm-4">#{msg['locadora.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:selectManyListbox value="locadora@locadora">
-
-   			<f:selectItems value="#{locadoraBean.locadoras}" var="locadora"
-   			itemLabel="#{locadora.name}" itemValue="#{locadora.email}" />
-                    </h:selectManyListbox>
+                    <h:selectOneMenu value="#{locacaoBean.locacao.locadora_email}">
+                        <f:selectItems value="#{locadoraBean.locadoras}" itemValue="#{locadoraBean.locadora}" itemLabel="#{locadoraBean.locadora}"/>
+                    </h:selectOneMenu>
                     <h:message for="locadoras"/>
                 </div>  
-            </div>-->
-            
-            <div class="form-group">  
-                <h:outputLabel for="cliente" class="control-label col-sm-4">#{msg['locacao.cliente.label']}</h:outputLabel>  
-                <div class="col-sm-4">  
-                    <h:inputText id="cliente_email" value="#{locacaoBean.locacao.cliente.email}" class="form-control"   
-                                 validatorMessage="#{msg['cliente.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>
-                    <h:message for="cliente"/>
-                </div>  
             </div>
-            
+
             <div class="form-group">  
-                <h:outputLabel for="locadora" class="control-label col-sm-4">#{msg['locacao.locadora.label']}</h:outputLabel>  
-                <div class="col-sm-4">  
-                    <h:inputText id="locadora_email" value="#{locacaoBean.locacao.locadora.email}" class="form-control"   
-                                 validatorMessage="#{msg['locadora.required.message']}">
-                        <f:validateRequired/>
-                    </h:inputText>
-                    <h:message for="locadora"/>
-                </div>  
-            </div>
-            
-            
-            <div class="form-group">  
-                <h:outputLabel for="rentDate" class="control-label col-sm-4">#{msg['locacao.rentDate.label']}</h:outputLabel>  
+                <h:outputLabel for="rentDate" class="control-label col-sm-4">#{msg['rentDate.label']}</h:outputLabel>  
                 <div class="col-sm-4">  
                     <h:inputText id="rentDate" value="#{locacaoBean.locacao.rentDate}" class="form-control"   
                                  validatorMessage="#{msg['data.required.message']}">
@@ -74,8 +48,9 @@
                 <div class="col-sm-4">  
                     <div class="col-sm-2">
 
-                        <h:commandButton value="#{msg['save.command.label']}" action="#{locacaoBean.salva()}" class="btn btn-primary"   
-                                         style="width: 80px;"></h:commandButton>  
+                        <h:commandButton value="#{msg['save.command.label']}" action="#{locacaoBean.salva(request.getUserPrincipal().getName().toString())}" class="btn btn-primary"   
+                                         style="width: 80px;">
+                        </h:commandButton>  
                     </div>  
                     <br/>  
                     <div class="col-sm-2">  
